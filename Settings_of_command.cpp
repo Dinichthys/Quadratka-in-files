@@ -47,6 +47,7 @@ void settings_from_argv (const int argc, char * const argv[], struct settings_of
                 set->stream_in = fopen (optarg, "r");
                 if (!(set->stream_in))
                 {
+                    mode = -1;
                     set->stop_program = true;
                     printf ("There is no files with name %s\n", optarg);
                 }

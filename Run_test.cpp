@@ -37,6 +37,7 @@ void run_test (const struct pattern_for_tests pattern)
        (!(is_null (x2 - pattern.expect_x2))))
     {
         print (pattern, result, x1, x2, false);
+        return;
     }
     print (pattern, result, x1, x2, true);
 }
@@ -47,13 +48,14 @@ void run_all_tests (FILE * const stream, const bool verbose)
 
     int number_of_test = 1;
 
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   0,   0,   ALL,       0,    0  , verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   0,   3.5, NO_ROOTS,  0,    0  , verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   10,  4,   LINE,      -0.4, 0  , verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   3,   0,   LINE,      0,    0  , verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 2.5, 5,   2.5, ONE_ROOT,  -1,   0  , verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 1,   -7,  12,  TWO_ROOTS, 4,    3  , verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 4,   -16, 15,  TWO_ROOTS, 2.5,  1.5, verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, -2,   5,  0,   TWO_ROOTS, 2.5,  0  , verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   0,        0,   ALL,       0,        0,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   0,        3.5, NO_ROOTS,  0,        0,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   10,       4,   LINE,      -0.4,     0,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 0,   3,        0,   LINE,      0,        0,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 2.5, 5,        2.5, ONE_ROOT,  -1,       0,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 1,   -7,       12,  TWO_ROOTS, 4,        3,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 4,   -16,      15,  TWO_ROOTS, 2.5,      1.5, verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, -2,  5,        0,   TWO_ROOTS, 2.5,      0,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 1,   -2.82842, 2,   ONE_ROOT,  1.41421,  0,   verbose });
     fprintf (stream, "All tests are done\n");
 }
