@@ -23,6 +23,7 @@ bool is_equal (const double a, const double b)
     assert (my_is_finite (a));
     assert (my_is_finite (b));
 
+    static const double ACCURACY = 0.00001;
     return (fabs(a - b) < ACCURACY);
 }
 

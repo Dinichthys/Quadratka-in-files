@@ -8,7 +8,7 @@ void swap (const enum SOLVE_SQUARE_RESULT result, double * const x1, double * co
     assert (x2 != NULL);
     assert (x1 != x2);
 
-    if ((result == TWO_ROOTS) && ((*x1 - *x2) < ACCURACY))
+    if ((result == TWO_ROOTS) && ((*x1 - *x2) < 0))
     {
         double change = *x1;
         *x1 = *x2;
@@ -56,6 +56,6 @@ void run_all_tests (FILE * const stream, const bool verbose)
     run_test ((struct pattern_for_tests) { stream, number_of_test++, 1,   -7,       12,  TWO_ROOTS, 4,        3,   verbose });
     run_test ((struct pattern_for_tests) { stream, number_of_test++, 4,   -16,      15,  TWO_ROOTS, 2.5,      1.5, verbose });
     run_test ((struct pattern_for_tests) { stream, number_of_test++, -2,  5,        0,   TWO_ROOTS, 2.5,      0,   verbose });
-    run_test ((struct pattern_for_tests) { stream, number_of_test++, 1,   -2.82842, 2,   ONE_ROOT,  1.41421,  0,   verbose });
+    run_test ((struct pattern_for_tests) { stream, number_of_test++, 1,   -2.82843, 2,   ONE_ROOT,  1.41421,  0,   verbose });
     fprintf (stream, "All tests are done\n");
 }

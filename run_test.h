@@ -1,6 +1,3 @@
-
-const double ACCURACY = 0.00001;
-
 enum SOLVE_SQUARE_RESULT
 {
     NO_ROOTS  = 0,
