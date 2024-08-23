@@ -15,6 +15,7 @@ enum SOLVE_SQUARE_RESULT solve_lineal (const double b, const double c, double * 
     }
 
     *x = -c / b;
+    *x = (is_null (*x)) ? 0.0 : *x;
     return LINE;
 }
 
